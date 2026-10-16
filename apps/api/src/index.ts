@@ -33,7 +33,7 @@ app.route("/api/v1", developerRoute);
 app.get("/health", (c) => {
   return c.json({
     success: true,
-    message: "server is active 😍",
+    message: "server is active ",
   });
 });
 
