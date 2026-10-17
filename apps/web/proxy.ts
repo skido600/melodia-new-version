@@ -5,7 +5,6 @@ const protectedPaths = ["/dashboard", "/doc", "/profile", "/search"];
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // refreshToken lives 7 days, accessToken only 15 min
   const isLoggedIn =
     Boolean(request.cookies.get("refreshToken")?.value) ||
     Boolean(request.cookies.get("accessToken")?.value);
@@ -14,7 +13,6 @@ export function proxy(request: NextRequest) {
     (path) => pathname === path || pathname.startsWith(`${path}/`),
   );
 
-  // not logged in -> cannot open protected pages
   if (isProtected && !isLoggedIn) {
     const url = new URL("/signup", request.url);
     url.searchParams.set("callbackUrl", pathname);
@@ -25,5 +23,10 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/authorized/:path*", "/login"],
+  matcher: [
+    "/dashboard/:path*",
+    "/doc/:path*",
+    "/profile/:path*",
+    "/search/:path*",
+  ],
 };
