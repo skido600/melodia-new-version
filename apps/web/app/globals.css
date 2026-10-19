@@ -21,7 +21,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: black; /* Optional: background color */
+  background-color: black;
 }
 
 .lds-heart,
@@ -38,7 +38,7 @@ body {
   height: 80px;
   transform: rotate(45deg);
   transform-origin: 40px 40px;
-  color: #16a34a; /* Set the color to green */
+  color: #16a34a;
 }
 
 .lds-heart div {

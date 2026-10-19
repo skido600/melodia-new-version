@@ -23,7 +23,7 @@ export default function Page() {
               create your collection, and let the music match your mood.
             </p>
           </div>
-          {/* Get Started */}
+        
           <div className="mt-8 w-full">
             <Link href="/signup">
               {" "}
